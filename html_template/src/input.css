@@ -66,8 +66,4 @@
   .login-form input {
     @apply border border-black/20 rounded-md px-4 py-2;
   }
-
-  input[type="checkbox"] {
-    @apply mx-1
-  }
 }
