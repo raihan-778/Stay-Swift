@@ -1,7 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { login } from "@/app/actions";
+
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   const [error, setError] = useState("");
@@ -13,7 +15,6 @@ const LoginForm = () => {
     try {
       const formData = new FormData(event.currentTarget);
       const response = await login(formData);
-
       console.log(response);
       if (!!response.error) {
         setError(response.error);

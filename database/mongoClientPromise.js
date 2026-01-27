@@ -2,13 +2,13 @@ import { MongoClient } from "mongodb";
 
 var _mongoClientPromise;
 
-if (!process.env.MONGODB_CONNECTION_STRING) {
+if (!process.env.MONGODB_URI) {
   throw new Error(
     'Invalid/Missing environment variable: "MONGODB_CONNECTION_STRING"',
   );
 }
 
-const uri = process.env.MONGODB_CONNECTION_STRING;
+const uri = process.env.MONGODB_URI;
 const options = {};
 
 let client;
@@ -17,7 +17,7 @@ let mongoClientPromise;
 if (process.env.ENVIRONMENT === "development") {
   // In development mode, use a global variable so that the value
   // is preserved across module reloads caused by HMR (Hot Module Replacement).
-  if (!global._mongomongoClientPromise) {
+  if (!global._mongoClientPromise) {
     client = new MongoClient(uri, options);
     global._mongoClientPromise = client.connect();
   }

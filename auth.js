@@ -1,6 +1,7 @@
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import NextAuth from "next-auth";
 import googleProviders from "next-auth/providers/google";
+import mongoClientPromise from "./database/mongoClientPromise";
 
 export const {
   auth,
